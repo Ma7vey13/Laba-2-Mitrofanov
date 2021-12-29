@@ -11,13 +11,8 @@ int Weight[Emax], node[Vmax], view[Vmax], nextV[Emax], Mas[Emax];
 int k = 0, Ecount = 0, Wcount = 0;
 bool NextCount = false; // есть ли следующая вершина
 int MasEdge[] = { 0, 0, 0, 0, 0, 0, 0 }; // количество овтетвлений от каждой вершины
-int MasEdCount = 0;                      // счетчик овтетвлений
+int MasEdCount = 0;                     // счетчик овтетвлений
 
-/*struct Vertex
-{
-public:
-	char name;
-} V;*/
 
 class Graph {
 public:
@@ -68,26 +63,13 @@ public:
 		return V[i-1];
 	}
 
-	/*
-	int First(char Name) {
-		for (int i = 0; i < n; i++) {
-			if (MatrixW[VertexIndex(Name)][i]) return i+1;
-			if (i == n - 1) return 0;
-		}
-	}*/
 	int First(int IND) {
 		for (int i = 0; i < n; i++) {
 			if (MatrixW[IND][i] != 0) return i;
 			if (i == n - 1) return -1;
 		}
 	}
-	/*
-	int Next(char Name, int I) { // подаем индекс, который идет после индекса из First
-		for (int i = I; i < n; i++) {
-			if (MatrixW[VertexIndex(Name)][i] != 0) return i+1;
-			if (i == n - 1) return 0;
-		}
-	}*/
+
 	int Next(int IND, int I) { // подаем индекс, который идет после индекса из First
 		if (NextCount) return -1;
 		if (I >= n) return -1;
